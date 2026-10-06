@@ -1,0 +1,47 @@
+{
+    "name": "erfan-php/erfan-datepicker",
+    "description": "A reusable Persian Jalali date and time picker for Laravel, Blade and Alpine.js with Bootstrap and Tailwind themes.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["laravel", "jalali", "persian", "datepicker", "alpinejs", "bootstrap", "tailwind"],
+    "homepage": "https://github.com/erfan-php/erfan-datepicker",
+    "support": {
+        "issues": "https://github.com/erfan-php/erfan-datepicker/issues",
+        "source": "https://github.com/erfan-php/erfan-datepicker"
+    },
+    "require": {
+        "php": "^8.3",
+        "illuminate/contracts": "^12.0 || ^13.0",
+        "illuminate/session": "^12.0 || ^13.0",
+        "illuminate/support": "^12.0 || ^13.0",
+        "illuminate/view": "^12.0 || ^13.0",
+        "morilog/jalali": "^3.5"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.0 || ^11.0",
+        "phpunit/phpunit": "^11.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Erfan\\Datepicker\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Erfan\\Datepicker\\Tests\\": "tests/php/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Erfan\\Datepicker\\ErfanDatepickerServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

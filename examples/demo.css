@@ -1,0 +1,30 @@
+body.erfan-demo {
+    margin: 0;
+    background: #f5f7fb;
+    color: #0f172a;
+    font-family: Tahoma, Arial, sans-serif;
+    line-height: 1.7;
+}
+
+.demo {
+    max-width: 680px;
+    margin: 32px auto;
+    padding: 0 24px;
+}
+
+.demo-header { margin-bottom: 24px; }
+.demo-header h1 { font-size: 28px; font-weight: 700; margin: 0; letter-spacing: -.8px; }
+.demo-header p { margin: 4px 0 16px; color: #64748b; font-size: 14px; }
+.demo-nav { display: flex; gap: 12px; font-size: 13px; }
+.demo-nav a { color: #4338ca; text-decoration: none; }
+.demo-card { padding: 24px; background: white; border: 1px solid #e2e8f0; border-radius: 16px; }
+.demo-note { color: #64748b; font-size: 13px; margin: 16px 0; }
+.demo-actions { display: flex; gap: 8px; margin-top: 20px; }
+.demo-actions button { border: 1px solid #cbd5e1; border-radius: 8px; padding: 6px 14px; background: white; font-size: 13px; cursor: pointer; }
+.demo-output { display: block; margin-top: 16px; padding: 10px; border-radius: 8px; background: #f8fafc; overflow-wrap: anywhere; font-family: monospace; font-size: 12px; }
+.demo-footer { margin-top: 620px; font-size: 12px; color: #64748b; }
+@media (max-width: 575px) {
+    .demo { padding: 0 16px; margin-top: 24px; }
+    .demo-card { padding: 16px; }
+    .demo-footer { margin-top: 32px; }
+}

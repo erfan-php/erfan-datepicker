@@ -1,0 +1,107 @@
+.erfan-datepicker {
+    --erfan-accent: #4f46e5;
+    --erfan-soft: #eef2ff;
+    --erfan-border: #e2e8f0;
+    --erfan-selection-text: #312e81;
+    position: relative;
+    min-width: 0;
+    font-family: inherit;
+}
+
+.erfan-datepicker--bootstrap {
+    --erfan-accent: var(--bs-primary, #7367f0);
+    --erfan-soft: rgba(var(--bs-primary-rgb, 115, 103, 240), .12);
+    --erfan-border: var(--bs-border-color, #e2e8f0);
+    --erfan-selection-text: var(--bs-body-color, #444);
+}
+
+.erfan-datepicker [x-cloak] { display: none !important; }
+.erfan-datepicker button, .erfan-datepicker input { font-family: inherit; }
+.erfan-datepicker button { cursor: pointer; }
+.erfan-datepicker button:disabled { cursor: not-allowed; opacity: .4; }
+.erfan-datepicker button:focus-visible, .erfan-datepicker input:focus-visible {
+    outline: 2px solid var(--erfan-accent);
+    outline-offset: 3px;
+}
+.erfan-datepicker__form-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+.erfan-datepicker .erfan-datepicker__trigger { display: flex; align-items: center; justify-content: space-between; gap: .75rem; width: 100%; }
+.erfan-datepicker__trigger svg { flex-shrink: 0; }
+.erfan-datepicker .erfan-datepicker__panel {
+    position: absolute;
+    inset-inline-start: 0;
+    top: calc(100% + .5rem);
+    z-index: 1080;
+    width: min(30rem, calc(100vw - 2rem));
+    max-height: min(42rem, 80dvh);
+    overflow-y: auto;
+    padding: 1rem;
+    box-sizing: border-box;
+    box-shadow: 0 .75rem 2rem rgb(15 23 42 / .12);
+}
+.erfan-datepicker__modes, .erfan-datepicker__steps { display: flex; gap: .5rem; margin-bottom: 1rem; }
+.erfan-datepicker__modes > *, .erfan-datepicker__steps > * { flex: 1; }
+.erfan-datepicker__steps > button { display: flex; align-items: center; justify-content: center; gap: .375rem; }
+.erfan-datepicker [aria-pressed="true"], .erfan-datepicker [aria-current="step"] {
+    background: var(--erfan-accent);
+    border-color: var(--erfan-accent);
+    color: #fff;
+}
+.erfan-datepicker__direct { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; }
+.erfan-datepicker__direct:has(.erfan-datepicker__time-wheel) { grid-template-columns: 1.1fr 1.1fr .8fr 1.65fr; }
+.erfan-datepicker__wheel { min-width: 0; text-align: center; touch-action: pan-x; }
+.erfan-datepicker__direct > .erfan-datepicker__wheel, .erfan-datepicker__time-wheel { border: 1px solid var(--erfan-border); border-radius: .75rem; padding: .5rem .25rem; }
+.erfan-datepicker__caption { display: block; margin-bottom: .25rem; text-align: center; }
+.erfan-datepicker__entry-hint { margin: .75rem 0 0; font-size: .75rem; line-height: 1.8; }
+.erfan-datepicker__arrow { display: block; width: 100%; min-height: 1.75rem; padding: 0; background: transparent; border: 0; color: inherit; font-size: 1.15rem; line-height: 1; }
+.erfan-datepicker__neighbor { display: block; padding: .5rem 0; opacity: .4; font-size: .85rem; white-space: nowrap; }
+.erfan-datepicker .erfan-datepicker__selected { background: var(--erfan-soft); color: var(--erfan-selection-text); border-color: transparent; padding-inline: .125rem; font-weight: 700; width: 100%; min-width: 0; border-radius: .5rem; }
+.erfan-datepicker__clock { display: flex; align-items: center; gap: .375rem; position: relative; }
+.erfan-datepicker__clock::after { content: ':'; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.erfan-datepicker__wheel--time { flex: 1; min-width: 0; }
+.erfan-datepicker__stage { animation: erfan-datepicker-enter .18s ease-out; }
+.erfan-datepicker__stage-title { margin: .5rem 0 1rem; text-align: center; font-weight: 600; }
+.erfan-datepicker__heading { display: flex; align-items: center; justify-content: space-between; gap: .5rem; margin-bottom: .75rem; }
+.erfan-datepicker__grid { display: grid; gap: .375rem; }
+.erfan-datepicker__grid--months { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.erfan-datepicker__grid--months button { min-height: 2.75rem; padding-inline: .125rem; }
+.erfan-datepicker__grid--days { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.erfan-datepicker__weekday { text-decoration: none; text-align: center; padding: .5rem 0; opacity: .65; }
+.erfan-datepicker__day { width: 100%; min-height: 2.5rem; padding-inline: 0 !important; }
+.erfan-datepicker__calendar-time { display: flex; align-items: center; justify-content: space-between; margin-top: .75rem; padding-top: .75rem; border-top: 1px solid var(--erfan-border); }
+.erfan-datepicker__calendar-time .erfan-datepicker__clock { width: 13rem; }
+.erfan-datepicker__summary { margin: 1rem 0; padding-top: .75rem; border-top: 1px solid var(--erfan-border); text-align: center; font-size: .9rem; font-variant-numeric: tabular-nums; }
+.erfan-datepicker__footer { display: flex; align-items: center; flex-wrap: wrap; gap: .375rem; }
+.erfan-datepicker__spacer { flex: 1; }
+.erfan-datepicker__panel--days .erfan-datepicker__heading,
+.erfan-datepicker__panel--days .erfan-datepicker__modes,
+.erfan-datepicker__panel--days .erfan-datepicker__steps { margin-bottom: .5rem; }
+.erfan-datepicker__panel--days .erfan-datepicker__stage-title { margin: .25rem 0 .5rem; }
+.erfan-datepicker__panel--days .erfan-datepicker__grid--days { gap: .125rem .375rem; }
+.erfan-datepicker__panel--days .erfan-datepicker__weekday { padding: .125rem 0; }
+.erfan-datepicker__panel--days .erfan-datepicker__day { min-height: 2rem; padding-block: .25rem; line-height: 1.25rem; }
+.erfan-datepicker__calendar-time .erfan-datepicker__wheel--time { display: grid; grid-template-columns: 1.5rem minmax(0, 1fr) 1.5rem; align-items: center; }
+.erfan-datepicker__calendar-time .erfan-datepicker__selected { padding-block: .25rem; }
+.erfan-datepicker__panel--days .erfan-datepicker__summary { margin: .5rem 0; padding-top: .5rem; }
+@keyframes erfan-datepicker-enter { from { opacity: 0; transform: translateY(.25rem); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 575px) {
+    .erfan-datepicker .erfan-datepicker__panel { position: fixed; inset: auto 1rem 1rem; width: auto; max-height: 85dvh; }
+    .erfan-datepicker__direct:has(.erfan-datepicker__time-wheel) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .erfan-datepicker__time-wheel { grid-column: 1 / -1; }
+    .erfan-datepicker__time-wheel .erfan-datepicker__clock { max-width: 12rem; margin-inline: auto; }
+    .erfan-datepicker__time-wheel .erfan-datepicker__neighbor { display: none; }
+    .erfan-datepicker__footer { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .erfan-datepicker__footer > button:last-child:nth-of-type(odd) { grid-column: 1 / -1; }
+    .erfan-datepicker__spacer { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .erfan-datepicker *, .erfan-datepicker *::after { animation: none !important; transition: none !important; }
+}

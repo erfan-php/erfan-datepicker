@@ -1,0 +1,12 @@
+/vendor/
+/node_modules/
+/.workbench/
+/examples/dist/
+/examples/rendered/
+/.phpunit.cache/
+/composer.lock
+.env
+.env.*
+!.env.example
+*.log
+*.zip
